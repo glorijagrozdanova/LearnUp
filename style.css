@@ -1,0 +1,463 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    transition: 0.25s;
+}
+body {
+    font-family: 'Bubblegum Sans';
+    background-color: #fff;
+    color:#111;
+    /*we can't see the content because it is behind the navigation bar*/
+   /* padding: 100px;*/
+    /*now we can see the content*/
+    
+    
+
+}
+.navbar {
+    /*rgb(0,172,238);*/
+    background-color: #85dcb8;
+    color: #fff;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    width: 100%;
+    height: 80px;/*height and line height are set to be the same value in ordder to achieve vertical alingment to the center of the elements in the navigation bar*/
+    line-height: 80px;
+    font-size: 18px;/*in our example for font size 18 px and line height 80px, a margin of 31px will be placed on top and on bottom of the text, 80-18=62, 62/2 = 31*/
+    padding: 0 30px;
+    position: fixed; /*the navigation bar will have a fixed position at the top of the page, it will stay at  the top of the page even when the page is scrolled*/
+    top: 0;
+    left: 0;
+    z-index: 10; /*the navigation bar will be placed on top off all static elements as well as posititoned elements with -index lower than 10*/
+}
+.navbar a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.navbar a.navbar-brand 
+{
+    float: left;
+    height: inherit;
+    line-height: inherit;
+    padding: 0 30px;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+.navbar a.navbar-brand span {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.navbar ul {
+    float:right;
+    list-style: none;
+    height: inherit;
+    line-height: inherit;
+    padding: 0 50px;
+}
+
+.navbar ul li {
+    display: inline-block;
+}
+.navbar ul li a {
+    display: block;
+    text-align: center;
+    padding: 0 30px;
+    min-width: 120px;
+}
+
+.navbar ul li a:hover {
+    background-color: rgba(255,255,255,0.15);
+}
+
+.navbar .navbar-toggler {
+    display: none;
+}
+.intro {
+    width: 100%;
+    height: 100vh;
+    /*background: url("https://source.unsplash.com/Xaanw0s0pMk") no-repeat center center;
+    background-size: cover;*/
+    background-color: #85dcb8;
+    
+}
+#introHeading, #firstP, #secondP {
+    color: #fff;
+    z-index: inherit;
+}
+#firstP, #secondP {
+    padding-left: 10px;
+}
+#introHeading {
+    padding: 100px;
+    font-size: 15vw;
+}
+#firstP {
+    font-size: 7vw;
+}
+#secondP {
+    font-size: 3vw;
+}
+
+.buttons {
+    z-index: 100;
+    position: fixed;
+    justify-content: center;
+    flex-direction: column;
+    bottom: 3%;
+    right: 3%;
+}
+
+.buttons .btn {
+    padding: 0 3px;
+    color: white;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.buttons .btn.active { 
+    background: #444;
+
+}
+
+.buttons .btn:nth-child(2)
+{
+    font-size: 1.25em;
+}
+
+.buttons .btn:nth-child(3)
+{
+    font-size: 1.5em;
+}
+.container {
+    position: relative;
+    height: 100vh;
+    color: white;
+}
+
+.container h2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20vh;
+}
+
+.draggable-elements {
+    display: flex;
+    justify-content: center;
+    padding: 6rem;
+}
+
+.draggable {
+    height: 5rem;
+    width: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    margin: 0rem 0.5rem;
+    cursor: move;
+    transition: opacity 0.2s;
+}
+
+.draggable:hover {
+    opacity: 0.5;
+}
+
+.droppable {
+    height: 6.5rem;
+    width: 6.5rem;
+    margin: 0.5rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    font-size: 4rem;
+    font-weight: bold;
+    background-color: #fff;
+    border: 3px dashed #111;
+    transition: border-width 0.2s, transform 0.2s, background-color 0.4s;
+   
+
+}
+
+.droppable span {
+    font-size: 1.25rem;
+    pointer-events: none; /* The element is never the target of pointer events */
+    color: #111;
+}
+/* Drag and Drop Related Styling */
+
+/*when draggable element enters the droppable area, the droppable.hover class will be 
+added to the droppable increasing border width and scaling up*/
+.droppable.droppable-hover {
+    border-width: 5px;
+    transform: scale(1.1);
+}
+/*when the corect draggable element is dropped over the coresponding droppable,
+the dropped class will be added over the droppable element, changing border-style
+to solid and colour to white*/
+.droppable.droppped {
+    border-style: solid;
+    color:#fff;
+}
+
+.droppable.dropped span {
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
+
+}
+/*the icon element will be attached dinamically with javascript */
+.droppable.dropped i {
+    pointer-events: none;
+}
+/* Finally, as soon as the draggable element has been dropped, we add the dragged class
+to it, setting the user-select to none, thus making it unselectable,the opacity to 0.1
+and the cursor to default in order to show the user that this
+element is no longer an available dragging option*/
+.draggable.dragged {
+    user-select: none;
+    opacity: 0.1;
+    cursor: default;
+}
+
+.draggable.dragged:hover {
+    opacity: 0.1;
+}
+
+.wrapper .left {
+    background: #85dcb8;
+    text-align: center;
+    
+    
+}
+
+.wrapper .right {
+    background: #41b3a3;
+    text-align: center;
+    
+    
+}
+@media (max-width: 767px)
+{
+    .wrapper .left .l {
+        position: relative;
+        top: 10%;
+        
+    }
+    
+    .wrapper .right .r {
+        position: relative;
+        top: 10%;
+        
+    }
+
+
+
+}
+
+@media (min-width: 768px) {
+    .wrapper .left .l {
+        position: relative;
+        top: 35%;
+        
+    }
+    
+    .wrapper .right .r {
+        position: relative;
+        top: 35%;
+    }
+}
+
+
+
+@media screen and (min-width: 768px)
+{
+    .wrapper{
+        display: flex;
+    }
+    .wrapper .left, .wrapper .right {
+        width: 50%;
+        height: 100vh;
+    }
+}
+
+@media (max-width: 767px)
+{
+    .wrapper .left, .wrapper .right {
+        width: 100%;
+        height: 50vh;
+    }
+
+    .droppable {
+        height: 5rem;
+        width: 5rem;
+        margin: 0.5rem auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        font-size: 4rem;
+        font-weight: bold;
+        background-color: #fff;
+        border: 3px dashed #111;
+        transition: border-width 0.2s, transform 0.2s, background-color 0.4s;
+
+    }
+    
+}
+
+#activityTitle{
+    text-align:center;
+    padding-top:10%;
+    position:relative;
+   
+}
+#cardArea{
+    width:300px;
+    height:200px;
+    margin:auto;
+    margin-top:80px;
+    border:3px solid #ABB7B7;
+    border-radius:5px;
+    position:relative;
+    overflow:hidden;
+}
+.card{
+    width:300px;
+    height:200px;
+    position:absolute;
+    text-align:center;
+    line-height:200px;
+    font-size:45px;
+    color:#efefef;
+    font-family:Montserrat,Arial;
+    cursor:pointer;
+}
+#nextButton{
+    width:80px;
+    text-align:center;
+    font-size:20px;
+    padding:10px;
+    cursor:pointer;
+    color:#efefef;
+    margin:auto;
+    margin-top:30px;
+    background-color:#019875;
+    border: 2px solid #1E824C;
+    border-radius:5px;
+    font-family:Montserrat,Arial;
+}
+#nextButton:hover{
+    opacity:.6;
+}
+#finalMessage{
+    text-align:center;
+    font-size:30px;
+    margin-top:30px;
+    
+}
+
+
+
+#abc {background-color: #85dcb8;}
+#num {background-color: #c38d9e;}
+#animals {background-color: #41b3a3;}
+#Animals1, #Animals11, #Animals2, #Animals22, #Animals3, #Animals33, #Animals4, #Animals44, #Animals5, #Animals55, #Animals6, #Animals66, #Animals7, #Animals77, #Animals8, #Animals88 {
+    background-color: #41b3a3;
+    overflow: hidden;
+}
+#Animals2, #Animals22, #Animals3, #Animals33, #Animals4, #Animals44, #Animals5, #Animals55, #Animals6, #Animals66, #Animals7, #Animals77, #Animals8, #Animals88
+{
+    display:none;
+}
+
+@media (max-width: 991px) {
+    .navbar ul {
+        padding: 0 10px;
+    }
+    .navbar ul li a {
+        min-width: 100px;
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .navbar {
+        padding: 0;
+    }
+    .navbar ul {
+        width: 100%;
+        padding: 0;
+        background-color: #85dcb8;
+        /*height: auto;*/
+        height: 100vh;
+        max-height: 0; /*hide the navigation menu*/
+        overflow: hidden;
+        transition: all ease-in-out 0.3s;
+    }
+
+    .navbar ul.open {
+        max-height: 100vh; /*show the navigation menu*/
+    }
+    .navbar ul li {
+        width: 100%;
+        /*border-bottom: 1px solid rgba(255,255,255,0.3);*/
+    }
+    .navbar ul li a {
+        padding: 0;
+    }
+    .navbar .navbar-toggler {
+        display: block;
+        position: absolute;
+        height: 40px;
+        top: 20px;
+        right: 20px;
+        background-color: transparent;
+        color: #fff;
+        border: 3px solid #fff;
+        /*border: none;*/
+        outline: none;
+        padding: 0 5px;
+        cursor: pointer;
+    }
+
+    .navbar .navbar-toggler span,
+    .navbar .navbar-toggler span::before,
+    .navbar .navbar-toggler span::after {/*the span bar and the before bar are on the same level, and the after bar is exactly below*/
+        display: block;
+        content: '';
+        background-color: #fff;
+        height: 3px;
+        width: 28px;
+        border-radius: 4px;
+        transition: all ease-in-out 0.3s;
+    }
+    .navbar .navbar-toggler span::before {
+        transform: translateY(-8px);
+    }
+    .navbar .navbar-toggler span::after {
+        transform: translateY(5px);
+    }
+    /*create the close icon*/
+    .navbar .navbar-toggler.open-navbar-toggler span {
+        /*transform: rotate(90deg);*/
+        background-color: transparent; /*we set the background color of one element to transparent because we only need two bars, this is a parent element so it will make the children dissapear as well*/
+       /* transform: scale(0.85) rotate(270deg);*/
+    }
+    .navbar .navbar-toggler.open-navbar-toggler span::before {
+        transform: translateY(0px) rotate(45deg);
+       /*transform: translateY(0px) scale(0.75) rotate(45deg);*/
+    }
+    .navbar .navbar-toggler.open-navbar-toggler span::after {
+        transform: translateY(-3px) rotate(-45deg);
+        /*transform: translateY(-3px) scale(0.75) rotate(-45deg);*/
+    }
+}
+

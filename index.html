@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Bubblegum Sans" rel="stylesheet">
+    <!--<link href="C:\Users\Kika\Desktop\Gloria\8mi semestar\nick\proekt\fontawesome-free-5.15.3-web\css\all.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+    
+    <title>LearnUp</title>
+</head>
+<body>
+    
+    <nav class="navbar">
+        <a href="#" class="navbar-brand">LearnUp</a>
+        <ul>
+            <li><a href="#abc">ABC</a></li>
+            <li><a href="#num">Simple Math</a></li>
+            <li><a href="#animals">Animals</a></li>
+       </ul>
+       
+     <button class="navbar-toggler "> <!--this button will only appear on smaller screens and it will open or close the navigation menu when clicked -->
+             <span></span>    
+
+         </button> 
+    </nav>
+    <div class="buttons">
+        <span id="firstBtn" class="btn active" onclick="smeniGolemina('1em')">A</span>
+        <span id="secondBtn" class="btn" onclick="smeniGolemina('1.1em')">A</span>
+        <span id="thirdBtn" class="btn" onclick="smeniGolemina('1.2em')">A</span>
+    </div> 
+    
+    
+    <header class="intro">
+        <p id="introHeading">HI!</p>
+        <p id="firstP">Welcome to LearnUp!</p>
+        <p id="secondP">Choose what you want to practise from the menu above and start practising!</p>
+    
+    </header>
+    <section id="abc" class="container">
+  
+    <div class="site">
+        <h1 id="activityTitle">Let's Learn the English Alphabet</h1>
+        <div id="cardArea"></div>
+        <div id="buttonArea"></div>
+
+    </div>
+
+       
+ 
+        
+    </section>
+    <section id="num" class="container">
+        <div class="wrapper">
+            <div class="left">
+                <div class="l">
+                    <h1>Addition</h1>
+                    <br><br>
+                    <div id="question1"></div>
+                    <input type="text" name="answer" id="answer1" style="width: 250px; height: 40px; font-size: 32px;">
+                    <br><br>
+                    <button onclick="quiz1()">Enter</button>
+                    <br><br>
+                    Score: <div id="score1">0</div>
+
+                </div>
+                
+
+            </div>
+            <div class="right">
+                <div class="r">
+                    <h1>Substraction</h1>
+                    <br><br>
+                    <div id="question2"></div>
+                    <input type="text" name="answer" id="answer2" style="width: 250px; height: 40px; font-size: 32px;">
+                    <br><br>
+                    <button onclick="quiz2()">Enter</button>
+                    <br><br>
+                    Score: <div id="score2">0</div>
+
+                </div>
+                
+
+            </div>
+        </div>
+
+       
+        
+        
+    </section>
+    <section id="animals" class="container">
+       
+        
+        <section id="Animals1" class="draggable-elements">
+            <i class="fas fa-cat draggable" draggable="true" style="color: #ff6384;" id="cat"></i>
+            <i class="fas fa-dove draggable" draggable="true" style="color: #ffce56;" id="dove"></i>
+            <i class="fas fa-frog draggable" draggable="true" style="color: #4bc0c0;" id="frog"></i>
+        </section>
+        <section id="Animals11" class="droppable-elements">
+            <div class="droppable" data-draggable-id="frog"><span>Frog</span></div>
+            <div class="droppable" data-draggable-id="dove"><span>Bird</span></div>
+            <div class="droppable" data-draggable-id="cat"><span>Cat</span></div>
+    
+        </section>
+       
+
+        <section id="Animals2" class="draggable-elements">
+            <i class="fas fa-crow draggable" draggable="true" style="color: #ff6384;" id="crow"></i>
+            <i class="fas fa-dog draggable" draggable="true" style="color: #ffce56;" id="dog"></i>
+            <i class="fas fa-horse-head draggable" draggable="true" style="color: #4bc0c0;" id="horse-head"></i>
+        </section>
+        <section id="Animals22" class="droppable-elements">
+            <div class="droppable" data-draggable-id="horse-head"><span>Horse</span></div>
+            <div class="droppable" data-draggable-id="crow"><span>Bird</span></div>
+            <div class="droppable" data-draggable-id="dog"><span>Dog</span></div>
+    
+        </section>
+
+        <section id="Animals3" class="draggable-elements">
+            <i class="fas fa-horse draggable" draggable="true" style="color: #ff6384;" id="horse"></i>
+            <i class="fas fa-kiwi-bird draggable" draggable="true" style="color: #ffce56;" id="kiwi-bird"></i>
+            <i class="fas fa-hippo draggable" draggable="true" style="color: #4bc0c0;" id="hippo"></i>
+        </section>
+        <section id="Animals33" class="droppable-elements">
+            <div class="droppable" data-draggable-id="kiwi-bird"><span>Bird</span></div>
+            <div class="droppable" data-draggable-id="horse"><span>Horse</span></div>
+            <div class="droppable" data-draggable-id="hippo"><span>Hippo</span></div>
+    
+        </section>
+        <section id="Animals4" class="draggable-elements">
+            <img src="https://img.icons8.com/doodle/48/000000/crab.png" class="crab draggable" draggable="true" style="color: #ff6384;" id="crab"/>
+            <img src="https://img.icons8.com/doodle/48/000000/tiger.png" class="tiger draggable" draggable="true" style="color: #ffce56;" id="tiger"></i>
+            <img src="https://img.icons8.com/doodle/48/000000/butterfly.png" class="butterfly draggable" draggable="true" style="color: #4bc0c0;" id="butterfly"></i>
+        </section>
+        <section id="Animals44" class="droppable-elements">
+            <div class="droppable" data-draggable-id="tiger"><span>Tiger</span></div>
+            <div class="droppable" data-draggable-id="crab"><span>Crab</span></div>
+            <div class="droppable" data-draggable-id="butterfly"><span>Butterfly</span></div>
+    
+        </section>
+        <section id="Animals5" class="draggable-elements">
+            <img src="https://img.icons8.com/doodle/48/000000/bull.png" class="bull draggable" draggable="true" style="color: #ff6384;" id="bull"/>
+            <img src="https://img.icons8.com/doodle/48/000000/ladybird--v2.png" class="ladybird draggable" draggable="true" style="color: #ffce56;" id="ladybird"></i>
+            <img src="https://img.icons8.com/doodle/48/000000/koala.png" class="koala draggable" draggable="true" style="color: #4bc0c0;" id="koala"></i>
+        </section>
+        <section id="Animals55" class="droppable-elements">
+            <div class="droppable" data-draggable-id="ladybird"><span>LadyBird</span></div>
+            <div class="droppable" data-draggable-id="koala"><span>Koala</span></div>
+            <div class="droppable" data-draggable-id="bull"><span>Bull</span></div>
+    
+        </section>
+        <section id="Animals6" class="draggable-elements">
+            <img src="https://img.icons8.com/doodle/48/000000/sloth.png" class="sloth draggable" draggable="true" style="color: #ff6384;" id="sloth"/>
+            <img src="https://img.icons8.com/doodle/48/000000/lemur.png" class="lemur draggable" draggable="true" style="color: #ffce56;" id="lemur"></i>
+            <img src="https://img.icons8.com/doodle/48/000000/turtle.png" class="turtle draggable" draggable="true" style="color: #4bc0c0;" id="turtle"></i>
+        </section>
+        <section id="Animals66" class="droppable-elements">
+            <div class="droppable" data-draggable-id="lemur"><span>Lemur</span></div>
+            <div class="droppable" data-draggable-id="sloth"><span>Sloth</span></div>
+            <div class="droppable" data-draggable-id="turtle"><span>Turtle</span></div>
+    
+        </section>
+        <section id="Animals7" class="draggable-elements">
+            <img src="https://img.icons8.com/doodle/48/000000/alligator.png" class="alligator draggable" draggable="true" style="color: #ff6384;" id="alligator"/>
+            <img src="https://img.icons8.com/doodle/48/000000/moose.png" class="moose draggable" draggable="true" style="color: #ffce56;" id="moose"></i>
+            <img src="https://img.icons8.com/doodle/48/000000/ordinary-jaguar.png" class="ordinary-jaguar draggable" draggable="true" style="color: #4bc0c0;" id="ordinary-jaguar"></i>
+        </section>
+        <section id="Animals77" class="droppable-elements">
+            <div class="droppable" data-draggable-id="moose"><span>Moose</span></div>
+            <div class="droppable" data-draggable-id="ordinary-jaguar"><span>Jaguar</span></div>
+            <div class="droppable" data-draggable-id="alligator"><span>Alligator</span></div>
+    
+        </section>
+        <section id="Animals8" class="draggable-elements">
+            <img src="https://img.icons8.com/doodle/48/000000/pelican.png" class="pelican draggable" draggable="true" style="color: #ff6384;" id="pelican"/>
+            <img src="https://img.icons8.com/doodle/48/000000/flounder-fish.png" class="flounder-fish draggable" draggable="true" style="color: #ffce56;" id="flounder-fish"></i>
+            <img src="https://img.icons8.com/doodle/48/000000/swan.png" class="swan draggable" draggable="true" style="color: #4bc0c0;" id="swan"></i>
+        </section>
+        <section id="Animals88" class="droppable-elements">
+            <div class="droppable" data-draggable-id="pelican"><span>Pelican</span></div>
+            <div class="droppable" data-draggable-id="flounder-fish"><span>Fish</span></div>
+            <div class="droppable" data-draggable-id="swan"><span>Swan</span></div>
+    
+        </section>
+    </section>
+    <script src="main.js"></script>
+    <script src="jquery-3.6.0.js"></script>
+</body>
+</html>
